@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import { dispatch, getState } from './store';
+
 class Counter extends Component {
-  state = {
-    counter: 0,
-  };
-  handleInc = () => {
-    this.setState({ counter: this.state.counter + 1 });
-  };
+  handleInc() {
+    dispatch({
+      type: 'INC',
+    });
+  }
   render() {
     return (
       <div>
-        {this.state.counter}
-        <br />
+        <h1>{getState().counter}</h1>
         <button onClick={this.handleInc}>Increment</button>
       </div>
     );
